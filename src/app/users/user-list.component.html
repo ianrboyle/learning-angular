@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-      User List
+      {{pageTitle}}
   </div>
 
   <div class="card-body">
@@ -17,22 +17,15 @@
       </div>
   </div>
   <div class="table-responsive">
-      <table class="table">
+      <table class="table" *ngIf="users.length">
           <thead>
-              <tr>
-                  <th>
-                      Name
-                  </th>
-                  <th>
-                      Email
-                  </th>
-                  <th>
-                      Phone
-                  </th>
-                  <th>
-                      Country
-                  </th>
-              </tr>   
+            <tr *ngFor='let user of users'>
+                <td>{{ user.fullName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.country }}</td>
+            </tr>
+        
           </thead>
           <tbody>
 
