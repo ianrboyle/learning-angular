@@ -4,28 +4,30 @@
   </div>
 
   <div class="card-body">
-      <div class="row">
-          <div class="col-md-2">Filter by:</div>
-          <div class="col-md-4">
-              <input type="text" />
-          </div>
-      </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Filtered by: {{listFilter}}</h4>
+            <!-- the ngModel is only available from the FormsModule that angular provides
+                      Its not available anywhere else -->
+          <input type="text" [(ngModel)]='listFilter' />
+         
+      </div> 
+          <div class="col-md-6">
+            <button (click)='showPhone()' class="btn btn-primary btn-sm">
+                {{showNumber ? 'Hide' : 'Show'}} Phone numbers
+            </button>
+        </div>
   </div>
-  <div class="row">
-      <div class="col-md-6">
-          <h4>Filtered by:</h4>
-      </div>
-      <div class="col-md-6">
-        <button (click)='showPhone()' class="btn btn-primary btn-sm">
-            {{showNumber ? 'Hide' : 'Show'}} Phone numbers
-        </button>
-    </div>
+  
+   
+
+
   </div>
   <div class="table-responsive">
       <table class="table" *ngIf="users.length">
           <tbody>
             <thead>
-                <tr *ngFor='let user of users'>
+                <tr *ngFor='let user of filteredUsers'>
                     <td>{{ user.fullName }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.country }}</td>
