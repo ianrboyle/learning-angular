@@ -15,20 +15,23 @@
       <div class="col-md-6">
           <h4>Filtered by:</h4>
       </div>
+      <div class="col-md-6">
+        <button (click)='showPhone()' class="btn btn-primary btn-sm">
+            {{showNumber ? 'Hide' : 'Show'}} Phone numbers
+        </button>
+    </div>
   </div>
   <div class="table-responsive">
       <table class="table" *ngIf="users.length">
-          <thead>
-            <tr *ngFor='let user of users'>
-                <td>{{ user.fullName }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.phone }}</td>
-                <td>{{ user.country }}</td>
-            </tr>
-        
-          </thead>
           <tbody>
-
+            <thead>
+                <tr *ngFor='let user of users'>
+                    <td>{{ user.fullName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.country }}</td>
+                    <td> <span *ngIf='showNumber'>{{ user.phone }}</span></td>
+                </tr>
+              </thead>
           </tbody>
       </table>
   </div>

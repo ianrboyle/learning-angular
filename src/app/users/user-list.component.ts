@@ -30,5 +30,10 @@ export class UserListComponent {
         "phone": "44444444",
         "country": "US"
     }
-]
+];
+showNumber:boolean = false;
+
+showPhone(): void {
+        this.showNumber = !this.showNumber;
+    };
 }
